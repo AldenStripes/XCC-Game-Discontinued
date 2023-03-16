@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LevelManager : MonoBehaviour
+{
+    public static LevelManager instance;
+
+    public Transform respawnPoint;
+    public Transform respawnPoint2;
+    public Transform checkPoint;
+    public GameObject playerPrefab;
+    public GameObject playerPrefab2;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    private void OnCollisionEnter2D(Collision2D collision) //Detect checkpoints - not finished yet
+    {
+        //if (collision.gameObject.name == "Checkpoint")
+        //{
+        //    respawnPoint.position = checkPoint.position;
+        //}
+    }
+    public void Respawn()
+    {
+        playerPrefab.transform.position = respawnPoint.transform.position;
+    }
+    public void RespawnPlayer2()
+    {
+        playerPrefab2.transform.position = respawnPoint2.transform.position;
+    }
+}
